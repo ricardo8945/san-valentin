@@ -70,14 +70,26 @@
 <body>
   <div class="card">
     <h1>❤️ ¿Quieres ser mi San Valentín? ❤️</h1>
-    <p>Prometo risas, complicidad y muchos momentos bonitos juntos.</p>
+    <p>Desde que estás en mi vida, todo es más bonito.<br>¿Aceptas ser mi San Valentín y seguir creando recuerdos conmigo?</p>
+
+    <div id="countdown" style="font-size:1.1rem; margin-bottom:1.5rem; font-weight:600;"></div>
+
+    <div class="carousel" style="position:relative; margin-bottom:1.5rem;">
+      <img class="carousel-img" src="reference/MR_1.jpg" alt="Recuerdo 1" style="width:100%; border-radius:15px;">
+      <img class="carousel-img" src="reference/MR_2.jpg" alt="Recuerdo 2" style="width:100%; border-radius:15px; display:none;">
+      <img class="carousel-img" src="reference/MR_3.jpg" alt="Recuerdo 3" style="width:100%; border-radius:15px; display:none;">
+      <img class="carousel-img" src="reference/MR_4.jpg" alt="Recuerdo 4" style="width:100%; border-radius:15px; display:none;">
+      <button onclick="prevImage()" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; border-radius:50%; padding:0.4rem 0.6rem; cursor:pointer;">‹</button>
+      <button onclick="nextImage()" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; border-radius:50%; padding:0.4rem 0.6rem; cursor:pointer;">›</button>
+    </div>
 
     <div class="buttons" id="buttons">
       <button class="yes" onclick="sayYes()">Sí 💕</button>
-      <button class="no" onmouseover="moveButton(this)">No 🙈</button>
+      <button class="no" onmouseover="moveButton(this)">No 🥺</button>
     </div>
 
     <div id="message" class="hidden">
+      <iframe style="border-radius:12px; margin-bottom:1rem" src="https://open.spotify.com/embed/playlist/1GCK8TRFzrF49kgQAVW6yN" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
       <h2>🥰 Sabía que dirías que sí</h2>
       <p>Gracias por hacer mis días más especiales. Te quiero.</p>
     </div>
@@ -94,6 +106,50 @@
       const y = Math.random() * 200 - 100;
       btn.style.transform = `translate(${x}px, ${y}px)`;
     }
-  </script>
+    // Cuenta regresiva a San Valentín
+    const targetDate = new Date('2026-02-14T00:00:00');
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdownEl.innerHTML = '💖 ¡Hoy es nuestro día! 💖';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+      countdownEl.innerHTML = `⏳ Faltan <strong>${days}</strong> días, <strong>${hours}</strong> horas y <strong>${minutes}</strong> minutos para nuestro San Valentín 💘`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+  // --- Carrusel de imágenes ---
+    const images = document.querySelectorAll('.carousel-img');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.style.display = i === index ? 'block' : 'none';
+      });
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    // Auto-play suave cada 4 segundos
+    setInterval(nextImage, 4000);
+</script>
 </body>
 </html>
