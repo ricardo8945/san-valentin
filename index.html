@@ -16,6 +16,8 @@
       color: #4a1c2c;
     }
     .card {
+      overflow: visible;
+
       background: white;
       padding: 2.5rem;
       border-radius: 20px;
@@ -80,17 +82,18 @@
       <img class="carousel-img" src="reference/MR_2.jpg" alt="Recuerdo 2" style="width:100%; max-height:420px; object-fit:cover; border-radius:15px; display:none;">
       <img class="carousel-img" src="reference/MR_3.jpg" alt="Recuerdo 3" style="width:100%; max-height:420px; object-fit:cover; border-radius:15px; display:none;">
       <img class="carousel-img" src="reference/MR_4.jpg" alt="Recuerdo 4" style="width:100%; max-height:420px; object-fit:cover; border-radius:15px; display:none;">
+
       <button onclick="prevImage()" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; border-radius:50%; padding:0.4rem 0.6rem; cursor:pointer;">‹</button>
       <button onclick="nextImage()" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; border-radius:50%; padding:0.4rem 0.6rem; cursor:pointer;">›</button>
     </div>
 
     <div class="buttons" id="buttons">
       <button class="yes" onclick="sayYes()">Sí 💕</button>
-      <button class="no" onmouseover="moveButton(this)">No 🙈</button>
+      <button class="no" onmouseover="moveButton(this)">No 🥺</button>
     </div>
 
     <div id="message" class="hidden">
-      <iframe style="border-radius:12px; margin-bottom:1rem" src="https://open.spotify.com/embed/playlist/1GCK8TRFzrF49kgQAVW6yN" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <iframe style="border-radius:12px; margin:1rem 0; width:100%; max-width:100%; overflow:hidden;" src="https://open.spotify.com/embed/playlist/1GCK8TRFzrF49kgQAVW6yN" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
       <h2>🥰 Sabía que dirías que sí</h2>
       <p>Gracias por hacer mis días más especiales. Te quiero.</p>
     </div>
