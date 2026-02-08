@@ -23,6 +23,7 @@
       max-width: 420px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.15);
       animation: fadeIn 1.2s ease;
+      box-sizing: border-box;
     }
     h1 {
       font-size: 2rem;
@@ -74,18 +75,18 @@
 
     <div id="countdown" style="font-size:1.1rem; margin-bottom:1.5rem; font-weight:600;"></div>
 
-    <div class="carousel" style="position:relative; margin-bottom:1.5rem;">
-      <img class="carousel-img" src="reference/MR_1.jpg" alt="Recuerdo 1" style="width:100%; border-radius:15px;">
-      <img class="carousel-img" src="reference/MR_2.jpg" alt="Recuerdo 2" style="width:100%; border-radius:15px; display:none;">
-      <img class="carousel-img" src="reference/MR_3.jpg" alt="Recuerdo 3" style="width:100%; border-radius:15px; display:none;">
-      <img class="carousel-img" src="reference/MR_4.jpg" alt="Recuerdo 4" style="width:100%; border-radius:15px; display:none;">
+    <div class="carousel" style="position:relative; margin:1.5rem 0;">
+      <img class="carousel-img" src="reference/MR_1.jpg" alt="Recuerdo 1" style="width:100%; max-height:420px; object-fit:cover; border-radius:15px;">
+      <img class="carousel-img" src="reference/MR_2.jpg" alt="Recuerdo 2" style="width:100%; max-height:420px; object-fit:cover; border-radius:15px; display:none;">
+      <img class="carousel-img" src="reference/MR_3.jpg" alt="Recuerdo 3" style="width:100%; max-height:420px; object-fit:cover; border-radius:15px; display:none;">
+      <img class="carousel-img" src="reference/MR_4.jpg" alt="Recuerdo 4" style="width:100%; max-height:420px; object-fit:cover; border-radius:15px; display:none;">
       <button onclick="prevImage()" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; border-radius:50%; padding:0.4rem 0.6rem; cursor:pointer;">‹</button>
       <button onclick="nextImage()" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; border-radius:50%; padding:0.4rem 0.6rem; cursor:pointer;">›</button>
     </div>
 
     <div class="buttons" id="buttons">
       <button class="yes" onclick="sayYes()">Sí 💕</button>
-      <button class="no" onmouseover="moveButton(this)">No 🥺</button>
+      <button class="no" onmouseover="moveButton(this)">No 🙈</button>
     </div>
 
     <div id="message" class="hidden">
